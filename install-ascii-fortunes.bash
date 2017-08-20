@@ -7,13 +7,13 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 # ...
-
+apt-get install -y fortune fortune-mod fortunes fortunes-bofh-excuses fortunes-ubuntu-server fortunes-spam fortunes-off fortunes-min fortunes-mario fortunes-it-off fortunes-es-off fortunes-eo-ascii fortunes-de fortunes-debian-hints
 rm -rfv /usr/share/games/fortunesnew.tgz /usr/share/games/fortunes.tgz 
 tar czvf /usr/share/games/fortunes.tgz /usr/share/games/fortunes
 ls -lah /usr/share/games/fortunes.tgz
 file /usr/share/games/fortunes.tgz
-apt-get remove -y fortune fortune-mod fortunes-mod
 gem install lolcat cowsay
+cp -av /usr/games/fortune /usr/bin/fortune
 apt-get install -y fortune fortune-mod fortunes-mod
 cp -av /usr/share/games/fortunes  /usr/share/games/fortunes.bak
 mv -fv /usr/share/games/fortunes/off /usr/share/games/fortunesoff
@@ -25,4 +25,11 @@ cp -av /usr/share/games/fortunes.bak /usr/share/games/fortunes/off
 tar czvf /usr/share/games/fortunesnew.tgz /usr/share/games/fortunes
 
  fortune | cowsay ; fortune | lolcat ;   fortune | cowsay ; fortune | lolcat ; fortune | cowsay ; fortune | lolcat ;  fortune | cowsay ; fortune | lolcat ; fortune | cowsay ; fortune | lolcat ; fortune | cowsay ; fortune | lolcat ; fortune | cowsay ; fortune | lolcat ;
+
+echo "installing xscreensaver config"
+
+cp -av  .xscreensaver /home/*/
+cp -av  .xscreensaver /root/
+cp -av  /usr/lib/xscreensaver/phosphor  /usr/bin/phosphor 
+/usr/lib/xscreensaver/phosphor -delay 0 -scale 2 -ticks 1 
 
